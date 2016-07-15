@@ -2,13 +2,14 @@ package com.gojavaonline3.dlenchuk.practice.practice1;
 
 import java.util.Arrays;
 
-public class task1 {
+public class Practice1 {
 
     private static final char[] CHAR_ARRAY = new char[]{'9', '1', '5', '2', '3'};
     private static final int[] NUMBER_ARRAY_ODD = new int[]{10, 16, 50, 25, 33, 56, 88};
     private static final int[] NUMBER_ARRAY_NON_ODD = new int[]{10, 16, 50, 12, 332, 56, 88};
     private static final int SNAKE_STEP = 3;
     private static final int[] NUMBER_SNAKE_ARRAY = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
+    private static final int[] NUMBER_SPIRAL_ARRAY = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
 
 
     public static void main(String[] args) {
@@ -26,7 +27,10 @@ public class task1 {
                 findMax(NUMBER_ARRAY_NON_ODD));
         System.out.println("1.5. Snake Traversal");
         System.out.println("\tSource : " + Arrays.toString(NUMBER_SNAKE_ARRAY) + " => " +
-                snakeTraversal(NUMBER_SNAKE_ARRAY));
+                Arrays.toString(snakeTraversal(NUMBER_SNAKE_ARRAY)));
+        System.out.println("1.6. Spiral Traversal");
+        System.out.println("\tSource : " + Arrays.toString(NUMBER_SPIRAL_ARRAY) + " => " +
+                Arrays.toString(snakeTraversal(NUMBER_SPIRAL_ARRAY)));
     }
 
     public static int merge(char[] chars) {
@@ -69,13 +73,30 @@ public class task1 {
     public static int[] snakeTraversal(int[] numbers) {
         int length = numbers.length;
         int[] result = new int[length];
-        int counter = 0;
         int snakeCounter = 0;
-        while (true) {
-            result[counter++] = numbers[snakeCounter];
-            snakeCounter += SNAKE_STEP;
-            if (snakeCounter > )
+        int step = SNAKE_STEP;
+        for (int i = 0; i < length; i++) {
+            result[i] = numbers[snakeCounter];
+            if ((step > 0 && (length - 1) - snakeCounter < SNAKE_STEP) ||
+                    (step < 0 && snakeCounter < SNAKE_STEP)) {
+                if (snakeCounter + 1 >= length) {
+                    break;
+                } else {
+                    snakeCounter++;
+                    step *= -1;
+                }
+            } else {
+                snakeCounter += step;
+            }
         }
+        return result;
+    }
+
+    public static int[] spiralTraversal(int[] numbers) {
+        int length = numbers.length;
+        int[] result = new int[length];
+        int spiralCounter = 0;
+
         return result;
     }
 
