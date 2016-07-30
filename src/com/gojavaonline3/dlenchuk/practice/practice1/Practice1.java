@@ -9,7 +9,10 @@ public class Practice1 {
     private static final int[] NUMBER_ARRAY_NON_ODD = new int[]{10, 16, 50, 12, 332, 56, 88};
     private static final int SNAKE_STEP = 3;
     private static final int[] NUMBER_SNAKE_ARRAY = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
-    private static final int[] NUMBER_SPIRAL_ARRAY = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
+    private static final int SPIRAL_GROUP = 4;
+    private static final int SPIRAL_STEP = 4;
+    private static final int[] NUMBER_SPIRAL_ARRAY = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
+
 
 
     public static void main(String[] args) {
@@ -30,7 +33,7 @@ public class Practice1 {
                 Arrays.toString(snakeTraversal(NUMBER_SNAKE_ARRAY)));
         System.out.println("1.6. Spiral Traversal");
         System.out.println("\tSource : " + Arrays.toString(NUMBER_SPIRAL_ARRAY) + " => " +
-                Arrays.toString(snakeTraversal(NUMBER_SPIRAL_ARRAY)));
+                Arrays.toString(spiralTraversal(NUMBER_SPIRAL_ARRAY)));
     }
 
     public static int merge(char[] chars) {
@@ -96,6 +99,8 @@ public class Practice1 {
         int length = numbers.length;
         int[] result = new int[length];
         int spiralCounter = 0;
+
+
 
         return result;
     }
